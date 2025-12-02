@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+  <link rel="stylesheet" href="login.css" />
+</head>
+<body>
+  <div class="login_form">
+    <form id="loginForm">
+      <h3>Log in with</h3>
+
+      <div class="input_box">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter email address" required />
+      </div>
+
+      <div class="input_box">
+        <div class="password_title">
+          <label for="password">Password</label>
+        </div>
+        <input type="password" id="password" placeholder="Enter your password" required />
+      </div>
+
+      <p id="error" style="color:red; margin-bottom:10px;"></p>
+
+      <button type="submit">Log In</button>
+    </form>
+  </div>
+
+  <script>
+    // fixed login credentials
+    const savedEmail = "nagin@gmail.com";
+    const savedPassword = "flat30";
+
+    const form = document.getElementById("loginForm");
+    const error = document.getElementById("error");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault(); // stops form from refreshing the page
+
+      const email = document.getElementById("email").value;
+      const pass = document.getElementById("password").value;
+
+      if (email === savedEmail && pass === savedPassword) {
+        // redirect to gallery.html
+        window.location.href = "gallery.html";
+      } else {
+        error.textContent = "Invalid email or password";
+      }
+    });
+  </script>
+
+</body>
+</html>
